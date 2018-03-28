@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requestHoraspersonas>
+    <params>
+       <numeroDiasMes>30.41666667</numeroDiasMes>
+       <coeficienteStdDiasXsemana>4.3452</coeficienteStdDiasXsemana>
+       <aceptaPuestosSinCobertura>true</aceptaPuestosSinCobertura>
+       <numeroFestivosAno>14</numeroFestivosAno>
+    </params>
+	<ot uid="OT1">
+		<empresa>01</empresa>
+		<delegacion>04</delegacion>
+		<tipoServicio>ESPORADICO</tipoServicio>
+		<subcliente>subcli1</subcliente>
+	</ot>
+	<subcliente uid="subcli1" id="1">
+		<numeroFestivosSubcliente>0</numeroFestivosSubcliente>
+	</subcliente>
+	<esquemaOperativo uid="posto1" id="posto1">
+		<numeroPuestos>3</numeroPuestos>
+		<tipoPuesto>VD</tipoPuesto>
+		<categoriaSalarial>SVIG - BA</categoriaSalarial>
+		<escala>5X2</escala>
+		<mediaJornada>false</mediaJornada>
+		<!--Optional:-->
+		<frecuenciaMediaJornada>S</frecuenciaMediaJornada>
+        <trabajaLunes>true</trabajaLunes>
+        <trabajaMartes>true</trabajaMartes>
+        <trabajaMiercoles>true</trabajaMiercoles>
+        <trabajaJueves>true</trabajaJueves>
+        <trabajaViernes>true</trabajaViernes>
+        <trabajaSabado>false</trabajaSabado>
+        <trabajaDomingo>false</trabajaDomingo>
+		<horasJornadaXpersona>12</horasJornadaXpersona>
+		<puestoSinCobertura>false</puestoSinCobertura>
+		<fechaInicioServicio>2014-07-01</fechaInicioServicio>
+		<!--Optional:-->
+		<fechaFinServicio>2014-07-31</fechaFinServicio>
+		<horaInicioJornada>10:00</horaInicioJornada>
+		<horaFinJornada>22:00</horaFinJornada>
+		<coberturaAlmuerzo>N</coberturaAlmuerzo>
+		<horasAlmuerzo>1</horasAlmuerzo>
+		<tipoJornada>T</tipoJornada>
+		<!--Optional:-->
+		<!--<numeroRealPersonas></numeroRealPersonas>-->
+		<!--<numeroTurnosMes>31</numeroTurnosMes>-->
+	</esquemaOperativo>
+	<tipoPuesto uid="VD" id="VD" />
+	<categoriaSalarial uid="SVIG - BA" id="SVIG - BA" />
+	<escala uid="5X2" id="5X2">
+		<diasTrabajadosXsemana>5</diasTrabajadosXsemana>
+		<diasLibresXsemana>2</diasLibresXsemana>
+	<mediaJornada>false</mediaJornada>
+	</escala>
+	<escalaXcategoria escala="5X2" tipoPuesto="VD" categoriaSalarial="SVIG - BA">
+		<tiempoMinimoAlmuerzo>1</tiempoMinimoAlmuerzo>
+		<tipoCalculo>M</tipoCalculo>
+		<horasPeriodo>44</horasPeriodo>
+		<horaInicioAdicNocturno>22:00</horaInicioAdicNocturno>
+		<horaFinAdicNocturno>05:00</horaFinAdicNocturno>		
+	</escalaXcategoria>            
+</requestHoraspersonas>

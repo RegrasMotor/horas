@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="HorasPersonasService" targetNamespace="http://soapService.services.rulesEngine.prosegur.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soapService.services.rulesEngine.prosegur.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://soapService.services.rulesEngine.prosegur.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://soapService.services.rulesEngine.prosegur.com/">
+  <xs:element name="calcularHorasPersonas" type="tns:calcularHorasPersonas"/>
+  <xs:element name="calcularHorasPersonasResponse" type="tns:calcularHorasPersonasResponse"/>
+  <xs:complexType name="calcularHorasPersonas">
+    <xs:sequence>
+      <xs:element name="requestHoraspersonas" type="tns:requestHoraspersonas"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestHoraspersonas">
+    <xs:sequence>
+      <xs:element name="params" type="tns:params"/>
+      <xs:element name="ot" type="tns:ot"/>
+      <xs:element name="subcliente" type="tns:subcliente"/>
+      <xs:element name="esquemaOperativo" type="tns:esquemaOperativo"/>
+      <xs:element name="tipoPuesto" type="tns:tipoPuesto"/>
+      <xs:element name="categoriaSalarial" type="tns:categoriaSalarial"/>
+      <xs:element name="escala" type="tns:escala"/>
+      <xs:element name="escalaXcategoria" type="tns:escalaXCategoria"/>
+    </xs:sequence>
+    <xs:attribute name="pais" type="xs:string" use="required"/>
+    <xs:attribute name="simulador" type="xs:string"/>
+  </xs:complexType>
+  <xs:complexType name="params">
+    <xs:sequence>
+      <xs:element default="30.41666667" name="numeroDiasMes" type="xs:float"/>
+      <xs:element default="4.3452" name="coeficienteStdDiasXsemana" type="xs:float"/>
+      <xs:element default="true" name="aceptaPuestosSinCobertura" type="xs:boolean"/>
+      <xs:element default="14" name="numeroFestivosAno" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ot">
+    <xs:sequence>
+      <xs:element name="empresa" type="xs:string"/>
+      <xs:element name="delegacion" type="xs:string"/>
+      <xs:element name="tipoServicio" type="tns:tipoServicio"/>
+      <xs:element name="subcliente" type="xs:IDREF"/>
+    </xs:sequence>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="subcliente">
+    <xs:sequence>
+      <xs:element default="0" name="numeroFestivosSubcliente" type="xs:int"/>
+    </xs:sequence>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="esquemaOperativo">
+    <xs:sequence>
+      <xs:element name="numeroPuestos" type="xs:int"/>
+      <xs:element name="tipoPuesto" type="xs:IDREF"/>
+      <xs:element name="categoriaSalarial" type="xs:IDREF"/>
+      <xs:element name="escala" type="xs:IDREF"/>
+      <xs:element default="false" name="mediaJornada" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="frecuenciaMediaJornada" type="tns:frecuenciaMediaJornada"/>
+      <xs:element default="false" name="trabajaLunes" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaMartes" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaMiercoles" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaJueves" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaViernes" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaSabado" type="xs:boolean"/>
+      <xs:element default="false" name="trabajaDomingo" type="xs:boolean"/>
+      <xs:element default="0.0" name="horasJornadaXpersona" type="xs:float"/>
+      <xs:element default="false" name="puestoSinCobertura" type="xs:boolean"/>
+      <xs:element name="fechaInicioServicio" type="xs:string"/>
+      <xs:element minOccurs="0" name="fechaFinServicio" type="xs:dateTime"/>
+      <xs:element name="horaInicioJornada" type="xs:string"/>
+      <xs:element name="horaFinJornada" type="xs:string"/>
+      <xs:element name="coberturaAlmuerzo" type="tns:coberturaAlmuerzo"/>
+      <xs:element default="0.0" name="horasAlmuerzo" type="xs:float"/>
+      <xs:element name="tipoJornada" type="tns:tipoJornada"/>
+      <xs:element minOccurs="0" name="numeroRealPersonas" type="xs:float"/>
+    </xs:sequence>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="tipoPuesto">
+    <xs:sequence/>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="categoriaSalarial">
+    <xs:sequence/>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="escala">
+    <xs:sequence>
+      <xs:element name="diasTrabajadosXsemana" type="xs:int"/>
+      <xs:element name="diasLibresXsemana" type="xs:int"/>
+      <xs:element name="bolPartTime" type="xs:boolean"/>
+    </xs:sequence>
+    <xs:attribute name="uid" type="xs:ID" use="required"/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="escalaXCategoria">
+    <xs:sequence>
+      <xs:element default="0.0" name="tiempoMinimoAlmuerzo" type="xs:float"/>
+      <xs:element name="tipoCalculo" type="tns:tipoCalculo"/>
+      <xs:element name="horasPeriodo" type="xs:float"/>
+      <xs:element name="horaInicioAdicNocturno" type="xs:string"/>
+      <xs:element name="horaFinAdicNocturno" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="escala" type="xs:IDREF" use="required"/>
+    <xs:attribute name="tipoPuesto" type="xs:IDREF" use="required"/>
+    <xs:attribute name="categoriaSalarial" type="xs:IDREF" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="calcularHorasPersonasResponse">
+    <xs:sequence>
+      <xs:element form="qualified" minOccurs="0" name="responseHoraspersonas" type="tns:responseHoraspersonas"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="responseHoraspersonas">
+    <xs:sequence>
+      <xs:element name="numeroPersonas" type="xs:double"/>
+      <xs:element name="numeroRealPersonas" type="xs:double"/>
+      <xs:element name="numeroTurnosMes" type="xs:double"/>
+      <xs:element name="horasVendidas" type="xs:double"/>
+      <xs:element name="horasTrabajadas" type="xs:double"/>
+      <xs:element name="horas">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" name="hora" type="tns:hora"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hora">
+    <xs:sequence/>
+    <xs:attribute name="id" type="tns:tipoHora" use="required"/>
+    <xs:attribute name="valor" type="xs:double" use="required"/>
+  </xs:complexType>
+  <xs:complexType name="soapFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="exceptionMessage" type="xs:string"/>
+      <xs:element minOccurs="0" name="exceptionTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="exceptionTrace" type="xs:string"/>
+      <xs:element minOccurs="0" name="exceptionType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="tipoServicio">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RIF"/>
+      <xs:enumeration value="ESPORADICO"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="frecuenciaMediaJornada">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="Q"/>
+      <xs:enumeration value="S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="coberturaAlmuerzo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="T"/>
+      <xs:enumeration value="C"/>
+      <xs:enumeration value="N"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoJornada">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="T"/>
+      <xs:enumeration value="H"/>
+      <xs:enumeration value="F"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoCalculo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="M"/>
+      <xs:enumeration value="D"/>
+      <xs:enumeration value="S"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="tipoHora">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ESALM"/>
+      <xs:enumeration value="NOR"/>
+      <xs:enumeration value="ENOC"/>
+      <xs:enumeration value="EXEFE"/>
+      <xs:enumeration value="HEESP"/>
+      <xs:enumeration value="E100FE"/>
+      <xs:enumeration value="E100FR"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="soapFault" nillable="true" type="tns:soapFault"/>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="WebServiceException">
+    <wsdl:part name="WebServiceException" element="tns:soapFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularHorasPersonasResponse">
+    <wsdl:part name="parameters" element="tns:calcularHorasPersonasResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularHorasPersonas">
+    <wsdl:part name="parameters" element="tns:calcularHorasPersonas">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HorasPersonas">
+    <wsdl:operation name="calcularHorasPersonas">
+      <wsdl:input name="calcularHorasPersonas" message="tns:calcularHorasPersonas">
+    </wsdl:input>
+      <wsdl:output name="calcularHorasPersonasResponse" message="tns:calcularHorasPersonasResponse">
+    </wsdl:output>
+      <wsdl:fault name="WebServiceException" message="tns:WebServiceException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HorasPersonasServiceSoapBinding" type="tns:HorasPersonas">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calcularHorasPersonas">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="calcularHorasPersonas">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="calcularHorasPersonasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WebServiceException">
+        <soap:fault name="WebServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HorasPersonasService">
+    <wsdl:port name="HorasPersonasPort" binding="tns:HorasPersonasServiceSoapBinding">
+      <soap:address location="http://localhost:9090/HorasPersonasPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

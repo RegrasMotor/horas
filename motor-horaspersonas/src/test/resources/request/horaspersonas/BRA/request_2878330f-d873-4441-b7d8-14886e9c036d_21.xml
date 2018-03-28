@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requestHoraspersonas>
+    <params>
+       <numeroDiasMes>30.41666667</numeroDiasMes>
+       <coeficienteStdDiasXsemana>4.3452</coeficienteStdDiasXsemana>
+       <aceptaPuestosSinCobertura>true</aceptaPuestosSinCobertura>
+    </params>
+	<ot id="2878330f-d873-4441-b7d8-14886e9c036d">
+		<empresa>01</empresa>
+		<delegacion>27</delegacion>
+		<tipoServicio>RIF</tipoServicio>
+		<numeroFestivosAno>14</numeroFestivosAno>
+		<numeroFestivosAnoEspeciales>0</numeroFestivosAnoEspeciales>
+	</ot>
+	<esquemaOperativo id="21">
+		<numeroPuestos>1</numeroPuestos>
+		<tipoPuesto>VD 1</tipoPuesto>
+		<categoriaSalarial>SVIG - AL</categoriaSalarial>
+		<escala>CHN</escala>
+		<mediaJornada>false</mediaJornada>
+		<!--Optional:-->
+		<!-- <frecuenciaMediaJornada>S</frecuenciaMediaJornada> -->
+        <trabajaLunes>true</trabajaLunes>
+        <trabajaMartes>true</trabajaMartes>
+        <trabajaMiercoles>true</trabajaMiercoles>
+        <trabajaJueves>true</trabajaJueves>
+        <trabajaViernes>true</trabajaViernes>
+        <trabajaSabado>false</trabajaSabado>
+        <trabajaDomingo>false</trabajaDomingo>
+		<horasJornadaXpuesto>3</horasJornadaXpuesto>
+		<horasJornadaXpersona>3</horasJornadaXpersona>
+		<puestoSinCobertura>false</puestoSinCobertura>
+		<fechaInicioServicio>2014-05-01</fechaInicioServicio>
+		<!--Optional:-->
+		<!-- <fechaFinServicio>2014-07-31</fechaFinServicio> -->
+		<horaInicioJornada>11:00</horaInicioJornada>
+		<horaFinJornada>14:00</horaFinJornada>
+		<coberturaAlmuerzo>C</coberturaAlmuerzo>
+		<horasAlmuerzo>3</horasAlmuerzo>
+		<tipoJornada>H</tipoJornada>
+		<!--Optional:-->
+		<numeroRealPersonas>0</numeroRealPersonas>
+	</esquemaOperativo>
+	<tipoPuesto id="VD 1" />
+	<categoriaSalarial id="SVIG - AL" />
+	<escala id="CHN">
+		<diasTrabajadosXsemana>7</diasTrabajadosXsemana>
+		<diasLibresXsemana>0</diasLibresXsemana>
+		<mediaJornada>true</mediaJornada>
+	</escala>
+	<escalaXcategoria escala="CHN" tipoPuesto="VD 1" categoriaSalarial="SVIG - AL">
+		<tiempoMinimoAlmuerzo>1</tiempoMinimoAlmuerzo>
+		<tipoCalculo>M</tipoCalculo>
+		<horasPeriodo>0</horasPeriodo>
+		<horaInicioAdicNocturno>22:00</horaInicioAdicNocturno>
+		<horaFinAdicNocturno>05:00</horaFinAdicNocturno>		
+	</escalaXcategoria>            
+</requestHoraspersonas>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<change-set xmlns="http://drools.org/drools-5.0/change-set"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+            xs:schemaLocation="http://drools.org/drools-5.0/change-set http://anonsvn.jboss.org/repos/labs/labs/jbossrules/trunk/drools-api/src/main/resources/change-set-1.0.0.xsd" >
+	<add>
+		<!-- Nivel 0 -->
+		<resource source="classpath:rules/horaspersonas/BRA/functions/auxiliares.function" type="DRL" basicAuthentication="disabled"/>		
+		<resource source="classpath:rules/horaspersonas/BRA/functions/cantidadPersonasPorDia.function" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/functions/numeroDiasFestivosServicio.function" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/functions/numeroDiasTrabajadosByEsquema.function" type="DRL" basicAuthentication="disabled"/>	
+		<resource source="classpath:rules/horaspersonas/BRA/functions/diasTrabajadosXsemanaByEsquema.function" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/decisionTables/Extension adicional nocturno.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/decisionTables/Horas Extras Especial mayor de dos horas.drl" type="DRL" basicAuthentication="disabled"/>
+
+		<resource source="classpath:rules/horaspersonas/BRA/Conversion datos QA.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Dias trabajados por semana.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Horas jornada por puesto.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de horas de almuerzo por jornada.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Calculos en base a la formula RIF.drl" type="DRL" basicAuthentication="disabled"/>
+				
+		<!-- Nivel 1 -->
+		<resource source="classpath:rules/horaspersonas/BRA/Reconfiguracion dias de trabajo y libres de la escala.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Reconfiguracion horas periodo de la escala X categoria.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de horas efectivas a trabajar cada jornada.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de meses de duracion del servicio.drl" type="DRL" basicAuthentication="disabled"/>
+		
+		<!-- Nivel 2 -->
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de festivos anuales.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Promedio de dias trabajados al mes de acuerdo con los dias trabajados a la semana.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Numero Turnos Mes.drl" type="DRL" basicAuthentication="disabled"/>
+				
+		<!-- Nivel 3 -->
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de festivos mensuales.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Numero de turnos por dia.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Promedio de dias trabajados al mes de acuerdo con la escala.drl" type="DRL" basicAuthentication="disabled"/>
+		<resource source="classpath:rules/horaspersonas/BRA/Horas Adicional nocturno.drl" type="DRL" basicAuthentication="disabled"/>
+	</add> 
+</change-set>

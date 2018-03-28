@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="e90a18ab-aedf-4f64-a846-9ec1961f711b" activeEnvironment="Default" name="horaspersonas" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="3d039559-6939-4e07-b5da-d43deae6d638" wsaVersion="NONE" name="HorasPersonasServiceSoapBinding" type="wsdl" bindingName="{http://soapService.services.rulesEngine.prosegur.com/}HorasPersonasServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="file:/C:/Priscila/fontes/motor-horaspersonas/src/main/webapp/wsdl/horaspersonas.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Priscila\fontes\motor-horaspersonas\src\main\webapp\wsdl\horaspersonas.wsdl"><con:part><con:url>file:\C:\Priscila\fontes\motor-horaspersonas\src\main\webapp\wsdl\horaspersonas.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="HorasPersonasService" targetNamespace="http://soapService.services.rulesEngine.prosegur.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://soapService.services.rulesEngine.prosegur.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://soapService.services.rulesEngine.prosegur.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="calcularHorasPersonas" type="tns:calcularHorasPersonas"/>
+      <xs:element name="calcularHorasPersonasResponse" type="tns:calcularHorasPersonasResponse"/>
+      <xs:complexType name="calcularHorasPersonas">
+        <xs:sequence>
+          <xs:element name="requestHoraspersonas" type="tns:requestHoraspersonas"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="requestHoraspersonas">
+        <xs:sequence>
+          <xs:element name="params" type="tns:params"/>
+          <xs:element name="ot" type="tns:ot"/>
+          <xs:element name="subcliente" type="tns:subcliente"/>
+          <xs:element name="esquemaOperativo" type="tns:esquemaOperativo"/>
+          <xs:element name="tipoPuesto" type="tns:tipoPuesto"/>
+          <xs:element name="categoriaSalarial" type="tns:categoriaSalarial"/>
+          <xs:element name="escala" type="tns:escala"/>
+          <xs:element name="escalaXcategoria" type="tns:escalaXCategoria"/>
+        </xs:sequence>
+        <xs:attribute name="pais" type="xs:string" use="required"/>
+        <xs:attribute name="simulador" type="xs:string"/>
+      </xs:complexType>
+      <xs:complexType name="params">
+        <xs:sequence>
+          <xs:element default="30.41666667" name="numeroDiasMes" type="xs:float"/>
+          <xs:element default="4.3452" name="coeficienteStdDiasXsemana" type="xs:float"/>
+          <xs:element default="true" name="aceptaPuestosSinCobertura" type="xs:boolean"/>
+          <xs:element default="14" name="numeroFestivosAno" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ot">
+        <xs:sequence>
+          <xs:element name="empresa" type="xs:string"/>
+          <xs:element name="delegacion" type="xs:string"/>
+          <xs:element name="tipoServicio" type="tns:tipoServicio"/>
+          <xs:element name="subcliente" type="xs:IDREF"/>
+        </xs:sequence>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="subcliente">
+        <xs:sequence>
+          <xs:element default="0" name="numeroFestivosSubcliente" type="xs:int"/>
+        </xs:sequence>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="esquemaOperativo">
+        <xs:sequence>
+          <xs:element name="numeroPuestos" type="xs:int"/>
+          <xs:element name="tipoPuesto" type="xs:IDREF"/>
+          <xs:element name="categoriaSalarial" type="xs:IDREF"/>
+          <xs:element name="escala" type="xs:IDREF"/>
+          <xs:element default="false" name="mediaJornada" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="frecuenciaMediaJornada" type="tns:frecuenciaMediaJornada"/>
+          <xs:element default="false" name="trabajaLunes" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaMartes" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaMiercoles" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaJueves" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaViernes" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaSabado" type="xs:boolean"/>
+          <xs:element default="false" name="trabajaDomingo" type="xs:boolean"/>
+          <xs:element default="0.0" name="horasJornadaXpersona" type="xs:float"/>
+          <xs:element default="false" name="puestoSinCobertura" type="xs:boolean"/>
+          <xs:element name="fechaInicioServicio" type="xs:string"/>
+          <xs:element minOccurs="0" name="fechaFinServicio" type="xs:dateTime"/>
+          <xs:element name="horaInicioJornada" type="xs:string"/>
+          <xs:element name="horaFinJornada" type="xs:string"/>
+          <xs:element name="coberturaAlmuerzo" type="tns:coberturaAlmuerzo"/>
+          <xs:element default="0.0" name="horasAlmuerzo" type="xs:float"/>
+          <xs:element name="tipoJornada" type="tns:tipoJornada"/>
+          <xs:element minOccurs="0" name="numeroRealPersonas" type="xs:float"/>
+        </xs:sequence>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="tipoPuesto">
+        <xs:sequence/>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="categoriaSalarial">
+        <xs:sequence/>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="escala">
+        <xs:sequence>
+          <xs:element name="diasTrabajadosXsemana" type="xs:int"/>
+          <xs:element name="diasLibresXsemana" type="xs:int"/>
+          <xs:element name="bolPartTime" type="xs:boolean"/>
+        </xs:sequence>
+        <xs:attribute name="uid" type="xs:ID" use="required"/>
+        <xs:attribute name="id" type="xs:string" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="escalaXCategoria">
+        <xs:sequence>
+          <xs:element default="0.0" name="tiempoMinimoAlmuerzo" type="xs:float"/>
+          <xs:element name="tipoCalculo" type="tns:tipoCalculo"/>
+          <xs:element name="horasPeriodo" type="xs:float"/>
+          <xs:element name="horaInicioAdicNocturno" type="xs:string"/>
+          <xs:element name="horaFinAdicNocturno" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="escala" type="xs:IDREF" use="required"/>
+        <xs:attribute name="tipoPuesto" type="xs:IDREF" use="required"/>
+        <xs:attribute name="categoriaSalarial" type="xs:IDREF" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="calcularHorasPersonasResponse">
+        <xs:sequence>
+          <xs:element form="qualified" minOccurs="0" name="responseHoraspersonas" type="tns:responseHoraspersonas"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="responseHoraspersonas">
+        <xs:sequence>
+          <xs:element name="numeroPersonas" type="xs:double"/>
+          <xs:element name="numeroRealPersonas" type="xs:double"/>
+          <xs:element name="numeroTurnosMes" type="xs:double"/>
+          <xs:element name="horasVendidas" type="xs:double"/>
+          <xs:element name="horasTrabajadas" type="xs:double"/>
+          <xs:element name="horas">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="hora" type="tns:hora"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="hora">
+        <xs:sequence/>
+        <xs:attribute name="id" type="tns:tipoHora" use="required"/>
+        <xs:attribute name="valor" type="xs:double" use="required"/>
+      </xs:complexType>
+      <xs:complexType name="soapFault">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="exceptionMessage" type="xs:string"/>
+          <xs:element minOccurs="0" name="exceptionTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="exceptionTrace" type="xs:string"/>
+          <xs:element minOccurs="0" name="exceptionType" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="tipoServicio">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="RIF"/>
+          <xs:enumeration value="ESPORADICO"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="frecuenciaMediaJornada">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="Q"/>
+          <xs:enumeration value="S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="coberturaAlmuerzo">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="T"/>
+          <xs:enumeration value="C"/>
+          <xs:enumeration value="N"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="tipoJornada">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="T"/>
+          <xs:enumeration value="H"/>
+          <xs:enumeration value="F"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="tipoCalculo">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="M"/>
+          <xs:enumeration value="D"/>
+          <xs:enumeration value="S"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="tipoHora">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="ESALM"/>
+          <xs:enumeration value="NOR"/>
+          <xs:enumeration value="ENOC"/>
+          <xs:enumeration value="EXEFE"/>
+          <xs:enumeration value="HEESP"/>
+          <xs:enumeration value="E100FE"/>
+          <xs:enumeration value="E100FR"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="soapFault" nillable="true" type="tns:soapFault"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="WebServiceException">
+    <wsdl:part name="WebServiceException" element="tns:soapFault"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularHorasPersonasResponse">
+    <wsdl:part name="parameters" element="tns:calcularHorasPersonasResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calcularHorasPersonas">
+    <wsdl:part name="parameters" element="tns:calcularHorasPersonas"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="HorasPersonas">
+    <wsdl:operation name="calcularHorasPersonas">
+      <wsdl:input name="calcularHorasPersonas" message="tns:calcularHorasPersonas"></wsdl:input>
+      <wsdl:output name="calcularHorasPersonasResponse" message="tns:calcularHorasPersonasResponse"></wsdl:output>
+      <wsdl:fault name="WebServiceException" message="tns:WebServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="HorasPersonasServiceSoapBinding" type="tns:HorasPersonas">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="calcularHorasPersonas">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="calcularHorasPersonas">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="calcularHorasPersonasResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="WebServiceException">
+        <soap:fault name="WebServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HorasPersonasService">
+    <wsdl:port name="HorasPersonasPort" binding="tns:HorasPersonasServiceSoapBinding">
+      <soap:address location="http://localhost:9090/HorasPersonasPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://10.80.16.135:8180/motor-horaspersonas/horaspersonas</con:endpoint><con:endpoint>http://brdc1svhwa071:8180/motor-horaspersonas/horaspersonas</con:endpoint><con:endpoint>http://localhost:8080/motor-horaspersonas/horaspersonas</con:endpoint></con:endpoints><con:operation id="4f326c77-6fd2-49ba-81f9-11d76815548f" isOneWay="false" action="" name="calcularHorasPersonas" bindingOperationName="calcularHorasPersonas" type="Request-Response" outputName="calcularHorasPersonasResponse" inputName="calcularHorasPersonas" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f2c3a786-aef2-4e05-b9ab-2a41337eb5cf" name="Cenario_29Dias_errado"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/motor-horaspersonas/horaspersonas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soapService.services.rulesEngine.prosegur.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:calcularHorasPersonas>\r
+         <requestHoraspersonas pais="BRA" simulador="">\r
+            <params>\r
+               <numeroDiasMes>30.416666</numeroDiasMes>\r
+               <coeficienteStdDiasXsemana>4.34525</coeficienteStdDiasXsemana>\r
+               <aceptaPuestosSinCobertura>true</aceptaPuestosSinCobertura>\r
+               <numeroFestivosAno>14</numeroFestivosAno>\r
+            </params>\r
+            <ot uid="__4f88980d-d2c0-4b97-a0ab-560512933271">\r
+               <empresa>01</empresa>\r
+               <delegacion>20</delegacion>\r
+               <tipoServicio>ESPORADICO</tipoServicio>\r
+               <subcliente>__85777E90EF70B05CE0430A0037ACB05C</subcliente>\r
+            </ot>\r
+            <subcliente uid="__85777E90EF70B05CE0430A0037ACB05C" id="99932">\r
+               <numeroFestivosSubcliente>0</numeroFestivosSubcliente>\r
+            </subcliente>\r
+            <esquemaOperativo uid="__3caab89d-afc9-4172-857c-007333f13824" id="50">\r
+               <numeroPuestos>1</numeroPuestos>\r
+               <tipoPuesto>__VD</tipoPuesto>\r
+               <categoriaSalarial>__180e6624-0118-414e-b20c-3fa25f72fb2d</categoriaSalarial>\r
+               <escala>__cb1f6901-c02c-4b84-a9e2-4f39c805d08d</escala>\r
+               <mediaJornada>false</mediaJornada>\r
+               <frecuenciaMediaJornada>M</frecuenciaMediaJornada>\r
+               <trabajaLunes>true</trabajaLunes>\r
+               <trabajaMartes>true</trabajaMartes>\r
+               <trabajaMiercoles>true</trabajaMiercoles>\r
+               <trabajaJueves>true</trabajaJueves>\r
+               <trabajaViernes>true</trabajaViernes>\r
+               <trabajaSabado>true</trabajaSabado>\r
+               <trabajaDomingo>true</trabajaDomingo>\r
+               <horasJornadaXpersona>12</horasJornadaXpersona>\r
+               <puestoSinCobertura>false</puestoSinCobertura>\r
+               <fechaInicioServicio>2017-10-06</fechaInicioServicio>\r
+               <fechaFinServicio>2017-11-04T00:00:00</fechaFinServicio>\r
+               <horaInicioJornada>08:00</horaInicioJornada>\r
+               <horaFinJornada>20:00</horaFinJornada>\r
+               <coberturaAlmuerzo>N</coberturaAlmuerzo>\r
+               <horasAlmuerzo>1</horasAlmuerzo>\r
+               <tipoJornada>T</tipoJornada>\r
+               <numeroRealPersonas>1</numeroRealPersonas>\r
+            </esquemaOperativo>\r
+            <tipoPuesto uid="__VD" id="VD"/>\r
+            <categoriaSalarial uid="__180e6624-0118-414e-b20c-3fa25f72fb2d" id="SVIG - AM"/>\r
+            <escala uid="__cb1f6901-c02c-4b84-a9e2-4f39c805d08d" id="12X36">\r
+               <diasTrabajadosXsemana>1</diasTrabajadosXsemana>\r
+               <diasLibresXsemana>1</diasLibresXsemana>\r
+               <bolPartTime>false</bolPartTime>\r
+            </escala>\r
+            <escalaXcategoria escala="__cb1f6901-c02c-4b84-a9e2-4f39c805d08d" tipoPuesto="__VD" categoriaSalarial="__180e6624-0118-414e-b20c-3fa25f72fb2d">\r
+               <tiempoMinimoAlmuerzo>1</tiempoMinimoAlmuerzo>\r
+               <tipoCalculo>D</tipoCalculo>\r
+               <horasPeriodo>12</horasPeriodo>\r
+               <horaInicioAdicNocturno>22:00</horaInicioAdicNocturno>\r
+               <horaFinAdicNocturno>05:00</horaFinAdicNocturno>\r
+            </escalaXcategoria>\r
+         </requestHoraspersonas>\r
+      </soap:calcularHorasPersonas>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soapService.services.rulesEngine.prosegur.com/HorasPersonas/calcularHorasPersonas"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ec021f99-40b5-42ea-a370-4888bb3dc88b" name="Cenario_30dias_correto"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/motor-horaspersonas/horaspersonas</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soap="http://soapService.services.rulesEngine.prosegur.com/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <soap:calcularHorasPersonas>\r
+         <requestHoraspersonas pais="BRA" simulador="">\r
+            <params>\r
+               <numeroDiasMes>30.416666</numeroDiasMes>\r
+               <coeficienteStdDiasXsemana>4.34525</coeficienteStdDiasXsemana>\r
+               <aceptaPuestosSinCobertura>true</aceptaPuestosSinCobertura>\r
+               <numeroFestivosAno>14</numeroFestivosAno>\r
+            </params>\r
+            <ot uid="__e9208006-b1d1-42c7-ae82-1f2bb7aca676">\r
+               <empresa>01</empresa>\r
+               <delegacion>20</delegacion>\r
+               <tipoServicio>ESPORADICO</tipoServicio>\r
+               <subcliente>__85777E90EF70B05CE0430A0037ACB05C</subcliente>\r
+            </ot>\r
+            <subcliente uid="__85777E90EF70B05CE0430A0037ACB05C" id="99932">\r
+               <numeroFestivosSubcliente>0</numeroFestivosSubcliente>\r
+            </subcliente>\r
+            <esquemaOperativo uid="__3a15d77f-573b-49d4-8392-99d7ae04c5b2" id="51">\r
+               <numeroPuestos>1</numeroPuestos>\r
+               <tipoPuesto>__VD</tipoPuesto>\r
+               <categoriaSalarial>__180e6624-0118-414e-b20c-3fa25f72fb2d</categoriaSalarial>\r
+               <escala>__cb1f6901-c02c-4b84-a9e2-4f39c805d08d</escala>\r
+               <mediaJornada>false</mediaJornada>\r
+               <frecuenciaMediaJornada>M</frecuenciaMediaJornada>\r
+               <trabajaLunes>true</trabajaLunes>\r
+               <trabajaMartes>true</trabajaMartes>\r
+               <trabajaMiercoles>true</trabajaMiercoles>\r
+               <trabajaJueves>true</trabajaJueves>\r
+               <trabajaViernes>true</trabajaViernes>\r
+               <trabajaSabado>true</trabajaSabado>\r
+               <trabajaDomingo>true</trabajaDomingo>\r
+               <horasJornadaXpersona>12</horasJornadaXpersona>\r
+               <puestoSinCobertura>false</puestoSinCobertura>\r
+               <fechaInicioServicio>2017-08-07</fechaInicioServicio>\r
+               <fechaFinServicio>2017-09-05T00:00:00</fechaFinServicio>\r
+               <horaInicioJornada>08:00</horaInicioJornada>\r
+               <horaFinJornada>20:00</horaFinJornada>\r
+               <coberturaAlmuerzo>N</coberturaAlmuerzo>\r
+               <horasAlmuerzo>1</horasAlmuerzo>\r
+               <tipoJornada>T</tipoJornada>\r
+               <numeroRealPersonas>2</numeroRealPersonas>\r
+            </esquemaOperativo>\r
+            <tipoPuesto uid="__VD" id="VD"/>\r
+            <categoriaSalarial uid="__180e6624-0118-414e-b20c-3fa25f72fb2d" id="SVIG - AM"/>\r
+            <escala uid="__cb1f6901-c02c-4b84-a9e2-4f39c805d08d" id="12X36">\r
+               <diasTrabajadosXsemana>1</diasTrabajadosXsemana>\r
+               <diasLibresXsemana>1</diasLibresXsemana>\r
+               <bolPartTime>false</bolPartTime>\r
+            </escala>\r
+            <escalaXcategoria escala="__cb1f6901-c02c-4b84-a9e2-4f39c805d08d" tipoPuesto="__VD" categoriaSalarial="__180e6624-0118-414e-b20c-3fa25f72fb2d">\r
+               <tiempoMinimoAlmuerzo>1</tiempoMinimoAlmuerzo>\r
+               <tipoCalculo>D</tipoCalculo>\r
+               <horasPeriodo>12</horasPeriodo>\r
+               <horaInicioAdicNocturno>22:00</horaInicioAdicNocturno>\r
+               <horaFinAdicNocturno>05:00</horaFinAdicNocturno>\r
+            </escalaXcategoria>\r
+         </requestHoraspersonas>\r
+      </soap:calcularHorasPersonas>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://soapService.services.rulesEngine.prosegur.com/HorasPersonas/calcularHorasPersonas"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
